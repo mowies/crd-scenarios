@@ -46,9 +46,11 @@ spec:
           spec:
             description: BookSpec defines the desired state of Book
             properties:
-              foo:
-                description: Foo is an example field of Book. Edit book_types.go to
-                  remove/update
+              author:
+                description: Author is the author of the book
+                type: string
+              title:
+                description: Title is the title of the book
                 type: string
             type: object
           status:
@@ -330,7 +332,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: controller:latest
+        image: docker.io/mowies/crd-scenarios-operator:v1
         livenessProbe:
           httpGet:
             path: /healthz

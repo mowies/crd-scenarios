@@ -28,8 +28,10 @@ type BookSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Book. Edit book_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// Title is the title of the book
+	Title string `json:"title,omitempty"`
+	// Author is the author of the book
+	Author string `json:"author,omitempty"`
 }
 
 // BookStatus defines the observed state of Book
@@ -38,8 +40,8 @@ type BookStatus struct {
 	// Important: Run "make" to regenerate code after modifying this file
 }
 
-//+kubebuilder:object:root=true
-//+kubebuilder:subresource:status
+// +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // Book is the Schema for the books API
 type Book struct {
@@ -50,7 +52,7 @@ type Book struct {
 	Status BookStatus `json:"status,omitempty"`
 }
 
-//+kubebuilder:object:root=true
+// +kubebuilder:object:root=true
 
 // BookList contains a list of Book
 type BookList struct {
