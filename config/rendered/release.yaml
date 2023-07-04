@@ -84,6 +84,9 @@ spec:
               author:
                 description: Author is the author of the book
                 type: string
+              description:
+                description: Description contains a short synopsis of the book content
+                type: string
               title:
                 description: Title is the title of the book
                 type: string

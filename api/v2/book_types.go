@@ -32,6 +32,8 @@ type BookSpec struct {
 	Title string `json:"title,omitempty"`
 	// Author is the author of the book
 	Author string `json:"author,omitempty"`
+	// Description contains a short synopsis of the book content
+	Description string `json:"description,omitempty"`
 }
 
 // BookStatus defines the observed state of Book
