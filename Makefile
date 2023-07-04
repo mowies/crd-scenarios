@@ -1,5 +1,7 @@
 
 # Image URL to use all building/pushing image targets
+RELEASE_REGISTRY ?= docker.io/mowies
+CHART_APPVERSION ?= v0.0.1
 IMG ?= docker.io/mowies/crd-scenarios-operator:v1
 # ENVTEST_K8S_VERSION refers to the version of kubebuilder assets to be downloaded by envtest binary.
 ENVTEST_K8S_VERSION = 1.27.1
@@ -180,4 +182,4 @@ helm-package: release-manifests helmify
 release-manifests: manifests
 	echo "building default overlay"
 	kustomize build config/default > config/rendered/release.yaml
-	envsubst < config/rendered/release.yaml > tmp.yaml; mv tmp.yaml config/rendered/release.yaml
+	#envsubst < config/rendered/release.yaml > tmp.yaml; mv tmp.yaml config/rendered/release.yaml

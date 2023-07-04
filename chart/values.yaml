@@ -22,8 +22,8 @@ controllerManager:
         drop:
         - ALL
     image:
-      repository: controller
-      tag: latest
+      repository: docker.io/mowies/crd-scenarios-operator
+      tag: v1
     livenessProbe:
       httpGet:
         path: /healthz
