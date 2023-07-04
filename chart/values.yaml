@@ -1,0 +1,58 @@
+controllerManager:
+  kubeRbacProxy:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+    image:
+      repository: gcr.io/kubebuilder/kube-rbac-proxy
+      tag: v0.14.1
+    resources:
+      limits:
+        cpu: 500m
+        memory: 128Mi
+      requests:
+        cpu: 5m
+        memory: 64Mi
+  manager:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+    image:
+      repository: controller
+      tag: latest
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8081
+      initialDelaySeconds: 15
+      periodSeconds: 20
+    readinessProbe:
+      httpGet:
+        path: /readyz
+        port: 8081
+      initialDelaySeconds: 5
+      periodSeconds: 10
+    resources:
+      limits:
+        cpu: 500m
+        memory: 128Mi
+      requests:
+        cpu: 10m
+        memory: 64Mi
+  nodeSelector: {}
+  replicas: 1
+  tolerations: []
+  topologySpreadConstraints: []
+imagePullSecrets: []
+kubernetesClusterDomain: cluster.local
+metricsService:
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+    targetPort: https
+  type: ClusterIP
