@@ -25,4 +25,12 @@ resources:
   kind: Book
   path: github.com/mowies/crd-scenarios/api/v2
   version: v2
+- api:
+    crdVersion: v1
+    namespaced: true
+  domain: test.keptn.sh
+  group: store
+  kind: Book
+  path: github.com/mowies/crd-scenarios/api/v3
+  version: v3
 version: "3"
