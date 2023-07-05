@@ -44,7 +44,6 @@ type BookStatus struct {
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
-// +kubebuilder:storageversion
 
 // Book is the Schema for the books API
 type Book struct {
