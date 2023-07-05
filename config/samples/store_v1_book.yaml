@@ -9,4 +9,5 @@ metadata:
     app.kubernetes.io/created-by: crd-scenarios
   name: book-sample
 spec:
-  # TODO(user): Add fields here
+  title: "booktitle-v1"
+  author: "John Doe"
