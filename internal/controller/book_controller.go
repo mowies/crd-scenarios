@@ -19,12 +19,11 @@ package controller
 import (
 	"context"
 
+	storev3 "github.com/mowies/crd-scenarios/api/v3"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
-
-	storev1 "github.com/mowies/crd-scenarios/api/v1"
 )
 
 // BookReconciler reconciles a Book object
@@ -33,9 +32,9 @@ type BookReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=store.test.keptn.sh,resources=books,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=store.test.keptn.sh,resources=books/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=store.test.keptn.sh,resources=books/finalizers,verbs=update
+// +kubebuilder:rbac:groups=store.test.keptn.sh,resources=books,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=store.test.keptn.sh,resources=books/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=store.test.keptn.sh,resources=books/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -57,6 +56,6 @@ func (r *BookReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.
 // SetupWithManager sets up the controller with the Manager.
 func (r *BookReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&storev1.Book{}).
+		For(&storev3.Book{}).
 		Complete(r)
 }

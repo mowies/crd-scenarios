@@ -31,7 +31,6 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	storev1 "github.com/mowies/crd-scenarios/api/v1"
 	storev2 "github.com/mowies/crd-scenarios/api/v2"
 	storev3 "github.com/mowies/crd-scenarios/api/v3"
 	"github.com/mowies/crd-scenarios/internal/controller"
@@ -46,7 +45,6 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
-	utilruntime.Must(storev1.AddToScheme(scheme))
 	utilruntime.Must(storev2.AddToScheme(scheme))
 	utilruntime.Must(storev3.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
