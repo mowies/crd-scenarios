@@ -2,12 +2,12 @@ apiVersion: store.test.keptn.sh/v2
 kind: Book
 metadata:
   labels:
-    app.kubernetes.io/name: book
+    app.kubernetes.io/name: book-v2
     app.kubernetes.io/instance: book-sample
     app.kubernetes.io/part-of: crd-scenarios
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: crd-scenarios
-  name: book-sample
+  name: book-sample-v2
 spec:
   title: "the book title v2"
   author: "Jane Doe"
