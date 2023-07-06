@@ -5,6 +5,32 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
+  - storage.test.keptn.sh
+  resources:
+  - boxes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - storage.test.keptn.sh
+  resources:
+  - boxes/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - storage.test.keptn.sh
+  resources:
+  - boxes/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
   - store.test.keptn.sh
   resources:
   - books
