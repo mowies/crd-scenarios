@@ -1,0 +1,13 @@
+apiVersion: store.test.keptn.sh/v1
+kind: Book
+metadata:
+  labels:
+    app.kubernetes.io/name: book
+    app.kubernetes.io/instance: book-sample
+    app.kubernetes.io/part-of: crd-scenarios
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: crd-scenarios
+  name: book-sample-v1
+spec:
+  title: "the book title v1"
+  author: "John Doe"
