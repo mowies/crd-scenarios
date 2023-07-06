@@ -1,0 +1,27 @@
+# permissions for end users to view boxes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: box-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: crd-scenarios
+    app.kubernetes.io/part-of: crd-scenarios
+    app.kubernetes.io/managed-by: kustomize
+  name: box-viewer-role
+rules:
+- apiGroups:
+  - storage.test.keptn.sh
+  resources:
+  - boxes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - storage.test.keptn.sh
+  resources:
+  - boxes/status
+  verbs:
+  - get

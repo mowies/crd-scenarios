@@ -20,6 +20,11 @@ import (
 	"flag"
 	"os"
 
+	storev1 "github.com/mowies/crd-scenarios/api/store/v1"
+	storev2 "github.com/mowies/crd-scenarios/api/store/v2"
+	storev3 "github.com/mowies/crd-scenarios/api/store/v3"
+	"github.com/mowies/crd-scenarios/internal/controller/store"
+
 	// Import all Kubernetes client auth plugins (e.g. Azure, GCP, OIDC, etc.)
 	// to ensure that exec-entrypoint and run can make use of them.
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
@@ -31,10 +36,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	storev1 "github.com/mowies/crd-scenarios/api/v1"
-	storev2 "github.com/mowies/crd-scenarios/api/v2"
-	storev3 "github.com/mowies/crd-scenarios/api/v3"
-	"github.com/mowies/crd-scenarios/internal/controller"
+	storagev1 "github.com/mowies/crd-scenarios/api/storage/v1"
+	storagecontroller "github.com/mowies/crd-scenarios/internal/controller/storage"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -49,6 +52,7 @@ func init() {
 	utilruntime.Must(storev1.AddToScheme(scheme))
 	utilruntime.Must(storev2.AddToScheme(scheme))
 	utilruntime.Must(storev3.AddToScheme(scheme))
+	utilruntime.Must(storagev1.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 
@@ -93,11 +97,18 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controller.BookReconciler{
+	if err = (&store.BookReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "Book")
+		os.Exit(1)
+	}
+	if err = (&storagecontroller.BoxReconciler{
+		Client: mgr.GetClient(),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Box")
 		os.Exit(1)
 	}
 	// +kubebuilder:scaffold:builder

@@ -5,6 +5,7 @@
 domain: test.keptn.sh
 layout:
 - go.kubebuilder.io/v4
+multigroup: true
 projectName: crd-scenarios
 repo: github.com/mowies/crd-scenarios
 resources:
@@ -32,4 +33,13 @@ resources:
   kind: Book
   path: github.com/mowies/crd-scenarios/api/v3
   version: v3
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: test.keptn.sh
+  group: storage
+  kind: Box
+  path: github.com/mowies/crd-scenarios/api/storage/v1
+  version: v1
 version: "3"

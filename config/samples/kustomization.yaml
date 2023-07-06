@@ -3,4 +3,5 @@ resources:
 - store_v1_book.yaml
 - store_v2_book.yaml
 - store_v3_book.yaml
+- storage_v1_box.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples
