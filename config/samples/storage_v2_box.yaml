@@ -7,6 +7,9 @@ metadata:
     app.kubernetes.io/part-of: crd-scenarios
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: crd-scenarios
-  name: box-sample
+  name: box-sample-v2
 spec:
-  # TODO(user): Add fields here
+  length: 23
+  width: 55
+  height: 123
+  weight: 33
