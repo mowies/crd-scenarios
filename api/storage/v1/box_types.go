@@ -44,6 +44,7 @@ type BoxStatus struct {
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
+// +kubebuilder:deprecatedversion
 
 // Box is the Schema for the boxes API
 type Box struct {
