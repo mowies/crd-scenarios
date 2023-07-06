@@ -36,6 +36,10 @@ type BoxSpec struct {
 	Height int `json:"height,omitempty"`
 	// Weight is the weight of the box
 	Weight int `json:"weight,omitempty"`
+	// +optional
+	// +kubebuilder:default:="empty"
+	// Content is a short description of the content of the box
+	Content string `json:"content,omitempty"`
 }
 
 // BoxStatus defines the observed state of Box

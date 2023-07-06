@@ -215,6 +215,11 @@ spec:
           spec:
             description: BoxSpec defines the desired state of Box
             properties:
+              content:
+                default: empty
+                description: Content is a short description of the content of the
+                  box
+                type: string
               height:
                 description: Height is the height of the box
                 type: integer
@@ -533,7 +538,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: docker.io/mowies/crd-scenarios-operator:v8
+        image: docker.io/mowies/crd-scenarios-operator:v9
         livenessProbe:
           httpGet:
             path: /healthz
