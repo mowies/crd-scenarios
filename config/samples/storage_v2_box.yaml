@@ -1,0 +1,12 @@
+apiVersion: storage.test.keptn.sh/v2
+kind: Box
+metadata:
+  labels:
+    app.kubernetes.io/name: box
+    app.kubernetes.io/instance: box-sample
+    app.kubernetes.io/part-of: crd-scenarios
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: crd-scenarios
+  name: box-sample
+spec:
+  # TODO(user): Add fields here

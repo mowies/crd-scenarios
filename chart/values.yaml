@@ -23,7 +23,7 @@ controllerManager:
         - ALL
     image:
       repository: docker.io/mowies/crd-scenarios-operator
-      tag: v5
+      tag: v6
     livenessProbe:
       httpGet:
         path: /healthz

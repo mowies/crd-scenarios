@@ -37,6 +37,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	storagev1 "github.com/mowies/crd-scenarios/api/storage/v1"
+	storagev2 "github.com/mowies/crd-scenarios/api/storage/v2"
 	storagecontroller "github.com/mowies/crd-scenarios/internal/controller/storage"
 	// +kubebuilder:scaffold:imports
 )
@@ -53,6 +54,7 @@ func init() {
 	utilruntime.Must(storev2.AddToScheme(scheme))
 	utilruntime.Must(storev3.AddToScheme(scheme))
 	utilruntime.Must(storagev1.AddToScheme(scheme))
+	utilruntime.Must(storagev2.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 
