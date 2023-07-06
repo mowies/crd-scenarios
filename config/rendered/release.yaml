@@ -533,7 +533,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: docker.io/mowies/crd-scenarios-operator:v6
+        image: docker.io/mowies/crd-scenarios-operator:v7
         livenessProbe:
           httpGet:
             path: /healthz
