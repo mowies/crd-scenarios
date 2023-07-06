@@ -191,7 +191,7 @@ spec:
             description: BoxStatus defines the observed state of Box
             type: object
         type: object
-    served: true
+    served: false
     storage: false
     subresources:
       status: {}
@@ -533,7 +533,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: docker.io/mowies/crd-scenarios-operator:v7
+        image: docker.io/mowies/crd-scenarios-operator:v8
         livenessProbe:
           httpGet:
             path: /healthz

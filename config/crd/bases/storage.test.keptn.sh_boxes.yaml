@@ -49,7 +49,7 @@ spec:
             description: BoxStatus defines the observed state of Box
             type: object
         type: object
-    served: true
+    served: false
     storage: false
     subresources:
       status: {}
