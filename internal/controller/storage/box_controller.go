@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	storagev1 "github.com/mowies/crd-scenarios/api/storage/v1"
+	storagev2 "github.com/mowies/crd-scenarios/api/storage/v2"
 )
 
 // BoxReconciler reconciles a Box object
@@ -33,9 +33,9 @@ type BoxReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=storage.test.keptn.sh,resources=boxes,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=storage.test.keptn.sh,resources=boxes/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=storage.test.keptn.sh,resources=boxes/finalizers,verbs=update
+// +kubebuilder:rbac:groups=storage.test.keptn.sh,resources=boxes,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=storage.test.keptn.sh,resources=boxes/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=storage.test.keptn.sh,resources=boxes/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -57,6 +57,6 @@ func (r *BoxReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.R
 // SetupWithManager sets up the controller with the Manager.
 func (r *BoxReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&storagev1.Box{}).
+		For(&storagev2.Box{}).
 		Complete(r)
 }
