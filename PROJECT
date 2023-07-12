@@ -36,15 +36,6 @@ resources:
 - api:
     crdVersion: v1
     namespaced: true
-  controller: true
-  domain: test.keptn.sh
-  group: storage
-  kind: Box
-  path: github.com/mowies/crd-scenarios/api/storage/v1
-  version: v1
-- api:
-    crdVersion: v1
-    namespaced: true
   domain: test.keptn.sh
   group: storage
   kind: Box
