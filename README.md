@@ -14,4 +14,3 @@ A summary of the versions can be seen below:
 | Box v1, v2   | 0.8.0         | v8               | Set Box v1 as unserved and deprecated, update controller fetched API version to v2 |
 | Box v1, v2   | 0.9.0         | v9               | Add new optional field to Box v2                                                   |
 | Box v1, v2   | 0.10.0        | v10              | Remove Box v1 API version                                                          |
-v10 is still todo for next week
